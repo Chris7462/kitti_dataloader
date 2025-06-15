@@ -1,7 +1,7 @@
 #include "kitti_dataloader/camera_loader.hpp"
 
 
-CameraLoader::CameraLoader(const std::string& camera_path)
+CameraLoader::CameraLoader(const std::string & camera_path)
 {
   loadDataPaths(camera_path + "/data", ".png");
   loadTimestamps(camera_path + "/timestamps.txt");

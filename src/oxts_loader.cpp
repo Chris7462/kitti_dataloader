@@ -4,7 +4,7 @@
 #include "kitti_dataloader/oxts_loader.hpp"
 
 
-OxtsLoader::OxtsLoader(const std::string& oxts_path)
+OxtsLoader::OxtsLoader(const std::string & oxts_path)
 {
   loadDataPaths(oxts_path + "/data", ".txt");
   loadTimestamps(oxts_path + "/timestamps.txt");

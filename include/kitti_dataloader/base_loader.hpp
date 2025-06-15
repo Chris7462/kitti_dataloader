@@ -21,9 +21,10 @@ public:
   virtual std::shared_ptr<DataPacket> next() = 0;
   bool hasNext() const;
 
+  inline size_t get_total_count() {return total_count_;}
+
 protected:
-  void loadDataPaths(const std::string & folder,
-    const std::string & extension);
+  void loadDataPaths(const std::string & folder, const std::string & extension);
   void loadTimestamps(const std::string & filepath);
 
   std::vector<std::string> data_paths_;

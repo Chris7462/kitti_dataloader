@@ -13,6 +13,6 @@ struct VelodynePacket : public DataPacket
 class VelodyneLoader : public BaseLoader
 {
 public:
-  explicit VelodyneLoader(const std::string& velodyne_path);
+  explicit VelodyneLoader(const std::string & velodyne_path);
   std::shared_ptr<DataPacket> next() override;
 };

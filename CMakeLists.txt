@@ -55,6 +55,25 @@ if(BUILD_TESTING)
   # a copyright and license is added to all source files
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(ament_cmake_gtest REQUIRED)
+
+  ament_add_gtest(all_loader_test
+    test/all_loader_test.cpp
+    src/base_loader.cpp
+    src/camera_loader.cpp
+    src/oxts_loader.cpp
+    src/velodyne_loader.cpp)
+
+  target_include_directories(all_loader_test PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    ${OpenCV_INCLUDE_DIRS})
+
+  target_link_libraries(all_loader_test
+    gtest_main
+    ${OpenCV_LIBS})
+
 endif()
 
 ament_package()

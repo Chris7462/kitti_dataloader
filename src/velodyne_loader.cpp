@@ -3,7 +3,7 @@
 #include "kitti_dataloader/velodyne_loader.hpp"
 
 
-VelodyneLoader::VelodyneLoader(const std::string& velodyne_path)
+VelodyneLoader::VelodyneLoader(const std::string & velodyne_path)
 {
   loadDataPaths(velodyne_path + "/data", ".bin");
   loadTimestamps(velodyne_path + "/timestamps.txt");
@@ -22,7 +22,7 @@ std::shared_ptr<DataPacket> VelodyneLoader::next()
     throw std::out_of_range("No more Velodyne frames");
   }
 
-  const std::string& path = data_paths_[current_index_];
+  const std::string & path = data_paths_[current_index_];
   std::ifstream file(path, std::ios::binary);
   if (!file) {
     throw std::runtime_error("Failed to open Velodyne file: " + path);
@@ -31,7 +31,7 @@ std::shared_ptr<DataPacket> VelodyneLoader::next()
   auto cloud = std::make_shared<VelodynePacket>();
 
   std::array<float, 4> point;
-  while (file.read(reinterpret_cast<char*>(point.data()), sizeof(float) * 4)) {
+  while (file.read(reinterpret_cast<char *>(point.data()), sizeof(float) * 4)) {
     cloud->points.push_back(point);
   }
 
