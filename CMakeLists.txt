@@ -14,7 +14,8 @@ add_library(kitti_dataloader STATIC
   src/base_loader.cpp
   src/camera_loader.cpp
   src/oxts_loader.cpp
-  src/velodyne_loader.cpp)
+  src/velodyne_loader.cpp
+  src/calibration_loader.cpp)
 
 # Specify include directories for the target
 target_include_directories(kitti_dataloader PUBLIC
@@ -63,7 +64,8 @@ if(BUILD_TESTING)
     src/base_loader.cpp
     src/camera_loader.cpp
     src/oxts_loader.cpp
-    src/velodyne_loader.cpp)
+    src/velodyne_loader.cpp
+    src/calibration_loader.cpp)
 
   target_include_directories(all_loader_test PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

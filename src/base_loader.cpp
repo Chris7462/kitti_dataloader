@@ -28,11 +28,11 @@ void BaseLoader::loadDataPaths(const std::string & folder, const std::string & e
   std::sort(data_paths_.begin(), data_paths_.end());
 }
 
-void BaseLoader::loadTimestamps(const std::string & filepath)
+void BaseLoader::loadTimestamps(const std::string & file_path)
 {
-  std::ifstream file(filepath);
+  std::ifstream file(file_path);
   if (!file.is_open()) {
-    throw std::runtime_error("Failed to open timestamps file: " + filepath);
+    throw std::runtime_error("Failed to open timestamps file: " + file_path);
   }
 
   std::string line;

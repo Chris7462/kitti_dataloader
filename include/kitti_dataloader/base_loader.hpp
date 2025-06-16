@@ -25,7 +25,7 @@ public:
 
 protected:
   void loadDataPaths(const std::string & folder, const std::string & extension);
-  void loadTimestamps(const std::string & filepath);
+  void loadTimestamps(const std::string & file_path);
 
   std::vector<std::string> data_paths_;
   std::vector<std::string> timestamps_;
