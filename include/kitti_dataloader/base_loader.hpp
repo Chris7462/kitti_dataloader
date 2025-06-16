@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
-#include <vector>
 #include <memory>
 #include <stdexcept>
+#include <string>
+#include <vector>
 
 
 struct DataPacket
@@ -21,6 +21,7 @@ public:
   virtual std::shared_ptr<DataPacket> next() = 0;
   bool hasNext() const;
 
+  // This function is only used for testing.
   inline size_t get_total_count() {return total_count_;}
 
 protected:
